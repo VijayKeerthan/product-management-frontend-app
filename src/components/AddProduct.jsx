@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ProductService from '../services/ProductService'
 
  class AddProduct extends Component {
 
@@ -45,7 +46,8 @@ import React, { Component } from 'react'
     e.preventDefault()
    let product = {id:this.state.id,name:this.state.name,price:this.state.price,quantity:this.state.quantity}
 
-   console.log(product)
+  console.log(product)
+  ProductService.insertProduct(product);
   
   }
     

@@ -11,6 +11,12 @@ class ProductService{
    }
 
 
+   insertProduct(product){
+      return axios.post(BASE_API + "/insert" , product)
+  ;
+  
+     }
+
 }
 
  export default new ProductService();
