@@ -22,6 +22,10 @@ class ProductService{
       return axios.get(BASE_API + "/find/" + id)
      }
 
+     updateProduct(id, product){
+      return axios.put(BASE_API + "/update/" + id,product)
+     }
+
 }
 
  export default new ProductService();

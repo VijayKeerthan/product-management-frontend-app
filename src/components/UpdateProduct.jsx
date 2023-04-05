@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import ProductService from '../services/ProductService'
 
- class AddProduct extends Component {
+ class UpdateProduct extends Component {
 
     constructor(props) {
     
       super(props)
       this.state = {
-        id :'',
+        id : this.props.match.params.id,
         name :'',
         price :'',
         quantity :'',
@@ -18,7 +18,7 @@ import ProductService from '../services/ProductService'
       this.changeNameHandler = this.changeNameHandler.bind(this)
       this.changePriceHandler = this.changePriceHandler.bind(this)
       this.changeQuantityHandler = this.changeQuantityHandler.bind(this)
-      this.save = this.save.bind(this)
+      this.update = this.update.bind(this)
       this.cancel = this.cancel.bind(this)
     }
 
@@ -42,15 +42,29 @@ import ProductService from '../services/ProductService'
       this.setState({quantity : event.target.value})
     }
       
+    componentDidMount(){
+    
+    ProductService.getProductsById(this.state.id).then((res)=>
+      {let product = res.data; 
+         this.setState({id: product.id,
+         name :product.name,
+         price :product.price,
+        quantity :product.quantity});
+      
+      }
+    );
+    }
 
-    save =(e) =>{
+    update =(e) =>{
     e.preventDefault()
    let product = {id:this.state.id,name:this.state.name,price:this.state.price,quantity:this.state.quantity}
 
   console.log(product)
-  ProductService.insertProduct(product);
+
+  ProductService.updateProduct(product.id, product);
   
   }
+
   cancel(){
     this.props.history.push("/");
   }
@@ -58,7 +72,7 @@ import ProductService from '../services/ProductService'
   render() {
     return (
       <div className='container'>
-         <h1>Add Product Page </h1>
+         <h1>Update Product Page </h1>
 
          <div className='row'>
          <div className='text-center'>
@@ -88,7 +102,7 @@ import ProductService from '../services/ProductService'
     
   </div>
   
-  <button className="btn btn-success" onClick ={this.save}>save</button>
+  <button className="btn btn-success" onClick ={this.update}>update</button>
   <button className="btn btn-danger" onClick ={this.cancel}>cancel</button>
 </form>
         
@@ -105,5 +119,5 @@ import ProductService from '../services/ProductService'
   }
 }
 
-export default AddProduct
+export default UpdateProduct
 

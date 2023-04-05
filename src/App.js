@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import AddProduct from './components/AddProduct';
 import Product from './components/Product';
+import UpdateProduct from './components/UpdateProduct';
 
 
 
@@ -30,6 +31,7 @@ function App() {
                               <Route exact path="/productsList" component={ListProducts} />
                               <Route exact path="/addproduct" component={AddProduct} />
                               <Route exact path="/viewProduct/:id" component={Product} />
+                              <Route exact path="/updateProduct/:id" component={UpdateProduct} />
                            
                             </div>
 
