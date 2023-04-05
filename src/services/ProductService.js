@@ -17,6 +17,11 @@ class ProductService{
   
      }
 
+     getProductsById(id){
+
+      return axios.get(BASE_API + "/find/" + id)
+     }
+
 }
 
  export default new ProductService();

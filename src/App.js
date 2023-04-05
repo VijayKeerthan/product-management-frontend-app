@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import AddProduct from './components/AddProduct';
+import Product from './components/Product';
 
 
 
@@ -28,6 +29,7 @@ function App() {
                               <Route exact path="/" component={ListProducts} />
                               <Route exact path="/productsList" component={ListProducts} />
                               <Route exact path="/addproduct" component={AddProduct} />
+                              <Route exact path="/viewProduct/:id" component={Product} />
                            
                             </div>
 
