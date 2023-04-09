@@ -62,6 +62,7 @@ import ProductService from '../services/ProductService'
   console.log(product)
 
   ProductService.updateProduct(product.id, product);
+  this.props.history.push("/");
   
   }
 

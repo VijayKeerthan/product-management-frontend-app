@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import AddProduct from './components/AddProduct';
 import Product from './components/Product';
 import UpdateProduct from './components/UpdateProduct';
+import DeleteProduct from './components/DeleteProduct';
 
 
 
@@ -32,6 +33,7 @@ function App() {
                               <Route exact path="/addproduct" component={AddProduct} />
                               <Route exact path="/viewProduct/:id" component={Product} />
                               <Route exact path="/updateProduct/:id" component={UpdateProduct} />
+                              <Route exact path="/deleteProduct/:id" component={DeleteProduct} />
                            
                             </div>
 

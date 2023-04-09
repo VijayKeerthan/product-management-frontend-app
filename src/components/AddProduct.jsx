@@ -49,12 +49,13 @@ import ProductService from '../services/ProductService'
 
   console.log(product)
   ProductService.insertProduct(product);
+  this.props.history.push("/");
   
   }
   cancel(){
     this.props.history.push("/");
   }
-    
+
   render() {
     return (
       <div className='container'>

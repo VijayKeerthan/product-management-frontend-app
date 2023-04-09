@@ -26,6 +26,11 @@ class ProductService{
       return axios.put(BASE_API + "/update/" + id,product)
      }
 
+     deleteProductById(id){
+
+      return axios.delete(BASE_API + "/delete/" + id)
+     }
+
 }
 
  export default new ProductService();
